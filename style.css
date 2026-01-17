@@ -494,7 +494,7 @@ button {
   align-items: center;
   gap: 14px;
   margin: 3px 0 10px;
-  padding: 12px 8px;
+  padding: 12px 0;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
@@ -524,6 +524,10 @@ button {
 
 .color-bar::-webkit-scrollbar {
   display: none;
+}
+
+.color-bar {
+  mask-image: linear-gradient(to right,black 90%, transparent);
 }
 
 /* EDITOR */
@@ -656,3 +660,4 @@ button {
   box-shadow: none;
  }
 }
+
