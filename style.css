@@ -297,10 +297,14 @@ body {
 
 /* NOTE TEXT */
 .note-text {
+  padding: 18px 20px;
+  min-height: 110px;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   gap: 6px;
   overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
 .note-title {
@@ -311,7 +315,7 @@ body {
   text-overflow: ellipsis;
 
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1.2rem;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
@@ -321,8 +325,18 @@ body {
 }
 
 .note-time {
-  font-size: 12px;
+  font-size: 0.95rem;
+  opacity: 0.8;
   color: rgba(255,255,255,0.7);
+}
+
+.note-emoji {
+ font-size: 1.4rem;
+ margin-right: 6px;
+}
+
+.note-date span {
+  font-size: 1.3rem;
 }
 
 /* ========== EDITOR PAGE ========== */
@@ -408,6 +422,12 @@ body {
   opacity: 0.85;
 }
 
+.icon-btn:focus,
+.fab:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .pin-icon {
   display: inline-flex;
   margin-right: 6px;
@@ -452,16 +472,27 @@ body {
 .color-bar {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
   margin: 3px 0 10px;
+  padding: 8px 0;
+  flex-wrap: nowrap;
 }
 
 .color-bar button {
   font-size: 30px;
   background: none;
-  border: 1.4px solid rgba(0,0,0,0.15);
+  border: none;
+  padding: 0;
   cursor: pointer;
+  line-height: 1;
   transition: transform 0.30s ease, box-shadow 0.15s ease;
+
+-webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+   user-select: none;
+  -webkit-user-select: none;
+
 }
 
 .color-bar button:hover {
@@ -512,17 +543,6 @@ body {
   color: #777777;
 }
 
-.note-time-icon {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.time-icon {
- width: 20px;
- height: 20px;
- flex-shrink: 0;
-}
 
 .editor-top {
   position: sticky;
@@ -584,7 +604,7 @@ body {
   }
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
  .icon-btn:hover,
  .fab:hover,
  .tick-btn:hover {
