@@ -370,6 +370,10 @@ button {
 
 }
 
+.editor-header * {
+  font-size: 28px;
+}
+
 .editor-header i {
   font-size: 24px;
 }
@@ -490,7 +494,7 @@ button {
   align-items: center;
   gap: 14px;
   margin: 3px 0 10px;
-  padding: 10px 6px;
+  padding: 12px 8px;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
@@ -498,6 +502,7 @@ button {
 
 .color-bar button {
   font-size: 36px;
+  min-width: 44px;
   background: transparent;
   border: none;
   padding: 6;
@@ -593,6 +598,10 @@ button {
 
   font-size: 26px;
 
+}
+
+.editor-footer * {
+  font-size: 28px;
 }
 
 .editor-footer i {
