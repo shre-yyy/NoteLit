@@ -536,16 +536,18 @@ button {
   position: absolute;
   top: 0;
   right: 0;
-  width: 36px;
+  width: 56px;
   height: 100%;
   pointer-events: none;
   background: linear-gradient(
       to right,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.3) 40%,
-      rgba(0,0,0,0.8) 100%
+      rgba(0,0,0,0.15) 40%,
+      rgba(0,0,0,0.5) 70%
+      rgba(0,0,0,0.9) 100%
   );
 }
+
 
 
 /* EDITOR */
@@ -678,6 +680,7 @@ button {
   box-shadow: none;
  }
 }
+
 
 
 
