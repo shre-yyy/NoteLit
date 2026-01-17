@@ -4,7 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* ========== BODY ========== */
@@ -22,6 +23,11 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 /* ========== APP WRAPPER ========== */
 #app {
   width: 100%;
@@ -331,7 +337,7 @@ body {
 }
 
 .note-emoji {
- font-size: 1.4rem;
+ font-size: 1.6rem;
  margin-right: 6px;
 }
 
@@ -453,6 +459,10 @@ body {
   color: #353839;
   transition: box-shadow 0.15s ease, background-color 0.45s ease;
   box-sizing: border-box;
+
+ -webkit-user-select: text;
+  user-select: text;
+
 }
 
 /* DATE TIME */
@@ -477,6 +487,8 @@ body {
   margin: 3px 0 10px;
   padding: 8px 0;
   flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .color-bar button {
@@ -495,14 +507,14 @@ body {
 
 }
 
-.color-bar button:hover {
-  transform: scale(1.5);
-}
 .color-bar button:active {
+  transform: scale(1.25);
   box-shadow: 0 0 0 3px rgba(0,0,0,0.15);
 }
 
-
+.color-bar::-webkit-scrollbar {
+  display: none;
+}
 
 /* EDITOR */
 #editor {
@@ -524,6 +536,12 @@ body {
   background: #111111;
   color: #353839;
   transition: box-shadow 0.15s ease, background-color 0.45s ease;
+
+  -webkit-overflow-scrolling: touch;
+  caret-color: #fff;
+ -webkit-user-select: text;
+  user-select: text;
+
 }
 
 
@@ -572,14 +590,16 @@ body {
 .editor-toolbar {
   display: flex;
   align-items: center;
-  gap: 35px;
-  padding: 6px 10px;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 8px 12px;
+  width: 100%;
 }
 
 .toolbar-group {
  display: flex;
- gap: 13px;
- margin-right: 18px;
+ gap: 12px;
+ margin-right: 0;
 }
 
 .delete-btn {
@@ -604,10 +624,14 @@ body {
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (hover: none) {
+  #notesList li:hover {
+   transform: none;
+}
  .icon-btn:hover,
  .fab:hover,
  .tick-btn:hover {
-  background: rgba(255,255,255,0.08);
+  background: transparent;
+  box-shadow: none;
  }
 }
