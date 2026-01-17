@@ -526,9 +526,32 @@ button {
   display: none;
 }
 
-.color-bar {
-  mask-image: linear-gradient(to right,black 90%, transparent);
+.color-bar-wrapper {
+  position: relative;
+  overflow: hidden;
 }
+
+.color-bar-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+      to right,
+      rgba(0,0,0,0).
+      rgba(0,0,0,0.8)
+  );
+}
+
+.color-bar button:last-child,
+.color-bar button:nth-last-child(2) {
+  filter: blur(0.5px);
+  opacity: 0.7;
+}
+
 
 /* EDITOR */
 #editor {
@@ -660,4 +683,5 @@ button {
   box-shadow: none;
  }
 }
+
 
