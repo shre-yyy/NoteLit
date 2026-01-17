@@ -145,6 +145,12 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0;
+
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+   user-select: none;
+  -webkit-user-select: none;
+
 }
 
 .tick-btn:hover {
@@ -323,7 +329,7 @@ body {
 #editorPage {
   flex: 1;
   width: 100%;
-
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -373,6 +379,9 @@ body {
   cursor: pointer;
   color: #fff;
 
+-webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+
   user-select: none;
   -webkit-user-select: none;
 }
@@ -395,7 +404,7 @@ body {
 
 /* Active */
 .icon-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
   opacity: 0.85;
 }
 
@@ -478,8 +487,8 @@ body {
   font-size: 15px;
   font-weight: 450;
   line-height: 1.6;
-  min-height: 240px;
-  max-height: 50vh;
+  min-height: 0;
+  max-height: none;
   overflow-y: auto;
   background: #111111;
   color: #353839;
@@ -515,12 +524,13 @@ body {
  flex-shrink: 0;
 }
 
-.editor-textarea {
-  min-height: 220px;
-  max-height: 50vh;
-  resize: none;
-  overflow-y: auto;
+.editor-top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #000;
 }
+
 
 /* ========== FOOTER ========== */
 .editor-footer {
@@ -530,6 +540,10 @@ body {
   gap: 14px;
   margin-top: 8px;
   padding: 5px;
+  position: sticky;
+  bottom: 0;
+  background: #000;
+  z-index: 10;
 
   border-top: 2px solid #2a2a2a;
   border-bottom: none;
@@ -551,6 +565,12 @@ body {
 .delete-btn {
  margin-left: auto;
  color: #ff6b6b;
+
+ -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+   user-select: none;
+  -webkit-user-select: none;
+
 }
 
 .delete-btn:hover {
