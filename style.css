@@ -498,6 +498,7 @@ button {
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
+  padding-right: 20px;
 }
 
 .color-bar button {
@@ -680,6 +681,7 @@ button {
   box-shadow: none;
  }
 }
+
 
 
 
