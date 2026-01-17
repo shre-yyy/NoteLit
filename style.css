@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 /* ========== BODY ========== */
@@ -11,19 +13,25 @@ body {
   color: #e0e0e0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   transition: box-shadow 0.5s ease, background-color 0.5s ease;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+
   margin: 0;
   display: flex;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 /* ========== APP WRAPPER ========== */
 #app {
+  width: 100%;
   max-width: 480px;
+  min-height: 100vh;
   margin: 0 auto;
   background: #000000;
   display: flex;
   flex-direction: column;
-  position: relative; /* FIXED */
+  position: relative; 
 }
 
 .top-bar {
@@ -147,8 +155,8 @@ body {
 }
 
 .tick-btn:active {
-  opacity: 0.8;
-  transform: scale(0.96);
+  opacity: 0.85;
+  transform: scale(0.95);
 }
 
 .empty-state 
@@ -211,6 +219,8 @@ body {
   transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+   user-select: none;
+  -webkit-user-select: none;
 }
 
 .fab svg {
@@ -228,7 +238,7 @@ body {
 }
 
 .fab:active {
-  transform: scale(0.96);
+  transform: scale(0.92);
    box-shadow: 0 0 18px rgba(255,255,255,0.85),
                0 8px 24px rgba(0,0,0,0.3),
                inset 0 0 1px
@@ -250,7 +260,7 @@ body {
 #notesList li {
   width: 100%;
   min-height: 80px;
-  border-sizing: border-box;
+  box-sizing: border-box;
   padding: 14px;
   margin-bottom: 8px;
   border-radius: 14px;
@@ -312,9 +322,12 @@ body {
 /* ========== EDITOR PAGE ========== */
 #editorPage {
   flex: 1;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: stretch;
   padding: 16px;
   background-color: #000000;
 }
@@ -359,6 +372,9 @@ body {
 
   cursor: pointer;
   color: #fff;
+
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .icon-btn svg {
@@ -380,6 +396,7 @@ body {
 /* Active */
 .icon-btn:active {
   transform: scale(0.95);
+  opacity: 0.85;
 }
 
 .pin-icon {
@@ -395,6 +412,7 @@ body {
 /* TITLE */
 #titleInput {
   width: 100%;
+  max-width: 100%;
   padding: 12px 16px;
   font-size: 40px;
   font-weight: 550;
@@ -448,6 +466,8 @@ body {
 
 /* EDITOR */
 #editor {
+  width: 100%;
+  box-sizing: border-box;
   flex: 1;
   padding: 14px 16px;
   border-radius: 16px;
@@ -458,7 +478,7 @@ body {
   font-size: 15px;
   font-weight: 450;
   line-height: 1.6;
-  min-height: 220px;
+  min-height: 240px;
   max-height: 50vh;
   overflow-y: auto;
   background: #111111;
@@ -542,4 +562,12 @@ body {
   #app {
     border-radius: 0;
   }
+}
+
+@media (hover: hover) {
+ .icon-btn:hover,
+ .fab:hover,
+ .tick-btn:hover {
+  background: rgba(255,255,255,0.08);
+ }
 }
