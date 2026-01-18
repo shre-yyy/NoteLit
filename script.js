@@ -508,10 +508,17 @@ editor.addEventListener("keydown", (e) => {
     renderNotes();
   });
 
-  colorBar && colorBar.addEventListener("click", (e) => {
-    if (!e.target.dataset.color) return;
+   colorBar && colorBar.addEventListener("click", (e) => {
+
+    const btn = e.target.closest("button");
+
+    if (!btn || !btn.dataset.color) return;
     if (!currentNoteId) return;
-    const color = e.target.dataset.color;
+    const color = btn.dataset.color;
+    const target = btn.querySelector("span") || btn;
+        target.style.color = color;
+        target.style.opacity = "1";
+
     const note = notes.find(n => n.id === currentNoteId);
     if (!note) return;
     note.color = color;
@@ -519,6 +526,7 @@ editor.addEventListener("keydown", (e) => {
     saveToStorage();
     renderNotes();
   });
+
 
   shareBtn && shareBtn.addEventListener("click", async () => {
     if (!editor.value.trim()) return;
@@ -581,4 +589,5 @@ addBtn && addBtn.addEventListener("click", () =>
   updateEmptyState();
   showNotesPage();
   renderNotes();
+
 });
