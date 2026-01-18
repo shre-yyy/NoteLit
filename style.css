@@ -545,7 +545,7 @@ button {
   flex-shrink: 0;
   position: relative;
   z-index: 1;
-
+  overflow: visible;
 
 -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -568,10 +568,6 @@ button {
   width: 36px;
   overflow: hidden;
   position: relative;
-}
-
-.last-heart span {
-  display: inline-block;
 }
 
 .color-bar-wrapper {
@@ -598,7 +594,6 @@ button {
       rgba(0,0,0,0) 
   );
 }
-
 
 /* EDITOR */
 #editor {
@@ -731,3 +726,4 @@ button {
   box-shadow: none;
  }
 }
+
