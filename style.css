@@ -301,6 +301,31 @@ button {
  justify-content: flex-start;
 }
 
+.note-card {
+  height: 60vh;
+  border-radius: 18px;
+  paddiing: 14px;
+  background: #111;
+  display: flex;
+}
+
+.note-textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.6;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* NOTE TEXT */
 .note-text {
   padding: 18px 20px;
@@ -498,7 +523,6 @@ button {
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
-  padding-right: 20px;
 }
 
 .color-bar button {
@@ -548,7 +572,6 @@ button {
       rgba(0,0,0,0.9) 100%
   );
 }
-
 
 
 /* EDITOR */
@@ -681,8 +704,3 @@ button {
   box-shadow: none;
  }
 }
-
-
-
-
-
