@@ -583,14 +583,14 @@ button {
   position: absolute;
   top: 0;
   right: 0;
-  width: 36px;
+  width: 40px;
   height: 100%;
   pointer-events: none;
 
   background: linear-gradient(
       to left,
-      rgba(0,0,0,0.85),
-      rgba(0,0,0,0.3),
+      rgba(0,0,0,0.9),
+      rgba(0,0,0,0.4),
       rgba(0,0,0,0) 
   );
 }
@@ -727,5 +727,6 @@ button {
   box-shadow: none;
  }
 }
+
 
 
