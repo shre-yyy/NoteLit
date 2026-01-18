@@ -533,8 +533,8 @@ button {
 }
 
 .color-bar button {
-  font-size: 30px;
-  min-width: 44px;
+  font-size: 34px;
+  min-width: 48px;
   background: none;
   border: none;
   padding: 6;
@@ -552,7 +552,7 @@ button {
 }
 
 .color-bar button:active {
-  transform: scale(1.25);
+  transform: scale(1.5);
   box-shadow: 0 0 0 3px rgba(0,0,0,0.15);
 }
 
@@ -561,15 +561,14 @@ button {
 }
 
 .last-heart {
-  width: 44px;
+  width: 36px;
   overflow: hidden;
+  position: relative;
 }
 
 .last-heart span {
   display: inline-block;
-  transform: translateX(-12px);
 }
-
 
 .color-bar-wrapper {
   position: sticky;
@@ -584,13 +583,14 @@ button {
   position: absolute;
   top: 0;
   right: 0;
-  width: 32px;
+  width: 36px;
   height: 100%;
   pointer-events: none;
 
   background: linear-gradient(
       to left,
-      rgba(0,0,0,1),
+      rgba(0,0,0,0.85),
+      rgba(0,0,0,0.3),
       rgba(0,0,0,0) 
   );
 }
@@ -727,4 +727,5 @@ button {
   box-shadow: none;
  }
 }
+
 
