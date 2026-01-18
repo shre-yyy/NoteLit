@@ -525,7 +525,7 @@ button {
   align-items: center;
   gap: 14px;
   margin: 3px 0 10px;
-  padding: 6px 16px 6px 0;
+  padding: 10px 16px;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
@@ -534,7 +534,7 @@ button {
 }
 
 .color-bar button {
-  font-size: 34px;
+  font-size: 40px;
   min-width: 48px;
   background: none;
   border: none;
@@ -565,17 +565,13 @@ button {
 }
 
 .last-heart {
-  width: 36px;
   overflow: hidden;
   position: relative;
 }
 
 .color-bar-wrapper {
-  position: sticky;
+  position: relative;
   overflow: hidden;
-  top: 72px;
-  z-index: 15;
-  background: #000;
 }
 
 .color-bar-wrapper::after {
@@ -583,17 +579,17 @@ button {
   position: absolute;
   top: 0;
   right: 0;
-  width: 40px;
+  width: 60px;
   height: 100%;
   pointer-events: none;
 
   background: linear-gradient(
-      to left,
-      rgba(0,0,0,0.9),
-      rgba(0,0,0,0.4),
-      rgba(0,0,0,0) 
-  );
+      to right,
+      #000 0%,
+      rgba(0,0,0,0) 100%
+  ); 
 }
+
 
 /* EDITOR */
 #editor {
@@ -726,4 +722,5 @@ button {
   box-shadow: none;
  }
 }
+
 
