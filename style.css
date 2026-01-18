@@ -521,7 +521,7 @@ button {
 /* COLOR BAR */
 .color-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 14px;
   margin: 3px 0 10px;
@@ -561,8 +561,15 @@ button {
 }
 
 .last-heart {
-   margin-right: 30px;
+  width: 44px;
+  overflow: hidden;
 }
+
+.last-heart span {
+  display: inline-block;
+  transform: translateX(-12px);
+}
+
 
 .color-bar-wrapper {
   position: sticky;
@@ -720,3 +727,4 @@ button {
   box-shadow: none;
  }
 }
+
