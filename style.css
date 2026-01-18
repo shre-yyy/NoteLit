@@ -530,6 +530,7 @@ button {
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  
 }
 
 .color-bar button {
@@ -540,8 +541,10 @@ button {
   padding: 6;
   cursor: pointer;
   line-height: 1;
-  transition: transform 0.30s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 
 
 -webkit-tap-highlight-color: transparent;
@@ -552,8 +555,9 @@ button {
 }
 
 .color-bar button:active {
-  transform: scale(1.5);
+  transform: scale(1.25);
   box-shadow: 0 0 0 3px rgba(0,0,0,0.15);
+  z-index: 5;
 }
 
 .color-bar::-webkit-scrollbar {
@@ -727,6 +731,3 @@ button {
   box-shadow: none;
  }
 }
-
-
-
