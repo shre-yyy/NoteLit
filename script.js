@@ -508,24 +508,32 @@ editor.addEventListener("keydown", (e) => {
     renderNotes();
   });
 
-   colorBar && colorBar.addEventListener("click", (e) => {
+  colorBar && colorBar.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn || !btn.dataset.color) return;
+  if (!currentNoteId) return;
 
-    const btn = e.target.closest("button");
+  const color = btn.dataset.color;
 
-    if (!btn || !btn.dataset.color) return;
-    if (!currentNoteId) return;
-    const color = btn.dataset.color;
-    const target = btn.querySelector("span") || btn;
-        target.style.color = color;
-        target.style.opacity = "1";
-
-    const note = notes.find(n => n.id === currentNoteId);
-    if (!note) return;
-    note.color = color;
-    applyNoteColor(color);
-    saveToStorage();
-    renderNotes();
+  // 🔥 reset all hearts fade
+  colorBar.querySelectorAll("button span").forEach(span => {
+    span.style.opacity = "0.4";
+    span.style.transform = "scale(1)";
   });
+
+  // 🔥 activate clicked heart
+  const target = btn.querySelector("span") || btn;
+  target.style.opacity = "1";
+  target.style.transform = "scale(1.1)";
+
+  const note = notes.find(n => n.id === currentNoteId);
+  if (!note) return;
+
+  note.color = color;
+  applyNoteColor(color);
+  saveToStorage();
+  renderNotes();
+});
 
 
   shareBtn && shareBtn.addEventListener("click", async () => {
@@ -591,3 +599,4 @@ addBtn && addBtn.addEventListener("click", () =>
   renderNotes();
 
 });
+
