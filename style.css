@@ -583,9 +583,10 @@ button {
   height: 100%;
   pointer-events: none;
 
-  background: linear-gradient(
-      to right,
+   background: linear-gradient(
+      to left,
       #000 0%,
+      rgba(0,0,0,0.8) 30%,
       rgba(0,0,0,0) 100%
   ); 
 }
@@ -722,5 +723,6 @@ button {
   box-shadow: none;
  }
 }
+
 
 
