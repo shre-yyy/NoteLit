@@ -522,10 +522,10 @@ button {
 .color-bar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin: 3px 0 5px;
   padding: 8px 16px;
-  padding-right: 80px;
+  padding-right: 110px;
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: visible;
@@ -535,9 +535,9 @@ button {
 }
 
 .color-bar button {
-  font-size: 34px;
-  width: 52px;
-  height: 52px;
+  font-size: 36px;
+  width: 56px;
+  height: 56px;
   background: none;
   border: none;
   padding: 0;
@@ -572,7 +572,6 @@ button {
 
 .color-bar-wrapper {
   position: relative;
-  overflow: hidden;
 }
 
 .color-bar-wrapper::after {
@@ -581,7 +580,7 @@ button {
   top: 0;
   right: 0;
 
-  width: 60px;
+  width: 70px;
   height: 100%;
   pointer-events: none;
   z-index: 10;
@@ -589,10 +588,11 @@ button {
   background: linear-gradient(
       to right,
       rgba(0,0,0,0),
-      rgba(0,0,0,0.5),
-      rgba(0,0,0,0.95)
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.75)
   ); 
 }
+
 
 
 /* EDITOR */
@@ -726,4 +726,5 @@ button {
   box-shadow: none;
  }
 }
+
 
