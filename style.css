@@ -671,15 +671,11 @@ button {
   bottom: 0;
   background: #000;
   z-index: 10;
-
-  padding-left: 6px;
-  padding-right: 14px;
+ 
+  font-size: 26px;
 
   border-top: 2px solid #2a2a2a;
   border-bottom: none;
-
-  font-size: 26px;
-
 }
 
 .editor-footer * {
@@ -693,7 +689,6 @@ button {
 .editor-footer .icon-btn svg {
   width: 25px;
   height: 25px;
-
 }
 
 .editor-toolbar {
@@ -703,13 +698,15 @@ button {
   gap: 18px;
   padding: 8px 12px;
   width: 100%;
+  padding-left: 4px;
+  padding-right: 26px;
+
 }
 
 .toolbar-group {
  display: flex;
  gap: 12px;
  margin-right: 0;
- margin-left: -6px;
 }
 
 .delete-btn {
