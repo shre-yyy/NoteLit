@@ -672,6 +672,9 @@ button {
   background: #000;
   z-index: 10;
 
+  padding-left: 6px;
+  padding-right: 14px;
+
   border-top: 2px solid #2a2a2a;
   border-bottom: none;
 
@@ -690,7 +693,7 @@ button {
 .editor-footer .icon-btn svg {
   width: 25px;
   height: 25px;
-  padding-right: 30px;
+
 }
 
 .editor-toolbar {
@@ -706,6 +709,7 @@ button {
  display: flex;
  gap: 12px;
  margin-right: 0;
+ margin-left: -6px;
 }
 
 .delete-btn {
@@ -741,5 +745,3 @@ button {
   box-shadow: none;
  }
 }
-
-
