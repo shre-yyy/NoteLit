@@ -409,6 +409,11 @@ button {
   font-size: 24px;
 }
 
+.editor-header .icon-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
 .editor-actions {
   display: flex;
   align-items: center;
@@ -426,8 +431,8 @@ button {
 }
 
 .icon-btn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   border: none;
   background: transparent;
@@ -683,8 +688,8 @@ button {
 }
 
 .editor-footer .icon-btn svg {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .editor-toolbar {
