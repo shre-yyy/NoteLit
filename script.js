@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
   const dateTimeEl = document.getElementById("dateTime");
   const emptyState= document.getElementById("emptyState");
- 
+
   /* ===== STATE ===== */
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
   let currentNoteId = null;
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===== PAGE SWITCH ===== */
   const showNotesPage = () => {
      editorPage.style.display = "none";
-  notesPage.style.display = "block";  
+  notesPage.style.display = "flex";  
    addBtn.style.display = "flex";
 
   };
@@ -508,7 +508,8 @@ editor.addEventListener("keydown", (e) => {
     renderNotes();
   });
 
-  colorBar.addEventListener("click", (e) => {
+
+colorBar.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn || !btn.dataset.color) return;
   if (!currentNoteId) return;
@@ -532,9 +533,7 @@ editor.addEventListener("keydown", (e) => {
   renderNotes();
 });
 
-
-
-  shareBtn && shareBtn.addEventListener("click", async () => {
+ shareBtn && shareBtn.addEventListener("click", async () => {
     if (!editor.value.trim()) return;
     await navigator.share({
       title: titleInput.value,
@@ -589,13 +588,22 @@ addBtn && addBtn.addEventListener("click", () =>
 
 });
 
+document.querySelectorAll('.note-hover')
+   .forEach(card => {
+  card.addEventListener('click', () => {
+   document
+        .querySelectorAll('.note-hover')
+        .forEach(c =>
+     c.classList.remove(selected));
+ 
+     card.classList.add('selected');
+  });
+});
+
   /* ===== INIT ===== */
   updateDateTime();
   setInterval(updateDateTime, 60000);
   updateEmptyState();
   showNotesPage();
   renderNotes();
-
 });
-
-
