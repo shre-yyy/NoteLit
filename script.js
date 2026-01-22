@@ -589,14 +589,14 @@ addBtn && addBtn.addEventListener("click", () =>
 });
 
 document.querySelectorAll('.note-hover')
-   .forEach(card => {
-  card.addEventListener('click', () => {
+   .forEach(note => {
+  note.addEventListener('click', () => {
    document
         .querySelectorAll('.note-hover')
         .forEach(c =>
-     c.classList.remove(selected));
+     c.classList.remove('active-note'));
  
-     card.classList.add('selected');
+     card.classList.add('active-note');
   });
 });
 
