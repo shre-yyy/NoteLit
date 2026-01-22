@@ -14,13 +14,10 @@ body {
   color: #e0e0e0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   transition: box-shadow 0.5s ease, background-color 0.5s ease;
-  height: 100vh;
-  width: 100vw;
-
+ 
   margin: 0;
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 button {
@@ -28,11 +25,12 @@ button {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
+
 /* ========== APP WRAPPER ========== */
 #app {
   width: 100%;
   max-width: 480px;
-  min-height: 100vh;
+  height: 100dvh;
   margin: 0 auto;
   background: #000000;
   display: flex;
@@ -41,19 +39,19 @@ button {
 }
 
 .top-bar {
-  height: 36px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #000;
-  flex: 1;
+  flex: 0 0 auto;
   flex-direction: column;
 }
 
 .app-title {
-  font-size: 20px;
-  font-weight: 600; 
-  color: #fff;
+  font-size: 30px;
+  font-weight: 400; 
+  color: #92A7A4;
 }
 
 
@@ -64,6 +62,7 @@ button {
   background-color: #000000;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* HEADER */
@@ -71,12 +70,13 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 6px;
+  margin: 0;
+  padding: 8px 0;
   border-bottom: 1px solid #2a2a2a;
 }
 
 .notes-header h2 {
+  margin: 0;
   color: #ffffff;
   font-size: 20px;
   font-weight: 600;
@@ -110,31 +110,34 @@ button {
 }
 
 /* ========== SEARCH ========== */
-#searchInput {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 6px;
-  border-radius: 8px;
-  border: 1px solid #2a2a2a;
-  background: #111111;
-  color: #ffffff;
-}
-
 /* SEARCH + TICK ROW */
 .search-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px;
+  padding: 8px 12px;
 }
 
 .search-row input {
+  min-height: 60px;
+
   flex: 1;
   padding: 10px 14px;
   border-radius: 10px;
-  border: 1px solid #333;
+  border: 1px solid #2a2a2a;
   background: #111;
   color: #fff;
+}
+
+#searchInput {
+  border: 1px solid #2a2a2a;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+#searchInput:focus {
+border-color: #92a7a8;
+  box-shadow: none;
 }
 
 /* TICK BUTTON */
@@ -260,18 +263,23 @@ button {
 /* ========== NOTES LIST ========== */
 #notesList {
   flex: 1;
-  padding: 12px;
+  padding: 15px 0 55px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   list-style: none;
+  align-items: center;
+
+
+  scrollbar-gutter: stable both-edges;
 }
 
 /* NOTE CARD */
 #notesList li {
-  width: 100%;
-  min-height: 80px;
+  width: 95%;
+  min-height: 157px;
   box-sizing: border-box;
   padding: 22px;
   margin-bottom: 8px;
@@ -279,7 +287,6 @@ button {
   background: #121212;
   border: 1px solid #2a2a2a;
   cursor: pointer;
-
   transition: box-shadow 0.5s ease, background-color 0.5s ease;
 
 }
@@ -306,7 +313,7 @@ button {
   margin-top: 12px;
   height: 60vh;
   border-radius: 18px;
-  paddiing: 14px;
+  padding: auto;
   background: #111;
   display: flex;
   overflow-y: auto;
@@ -609,7 +616,7 @@ button {
   box-sizing: border-box;
   flex: 1;
   padding: 14px 16px;
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid #2a2a2a;
   outline: none;
   resize: none;
@@ -710,7 +717,7 @@ button {
 }
 
 .delete-btn {
- margin-left: auto;
+ margin-left: -8px;
  color: #ff6b6b;
 
  -webkit-tap-highlight-color: transparent;
@@ -722,6 +729,14 @@ button {
 
 .delete-btn:hover {
   background: rgba(255,0,0,0.35);
+}
+
+.note-hover {
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.note-hover.selected {
+  box-shadow:  0 0 0 3px rgba(146, 167, 168, 0.7);
 }
 
 /* ========== RESPONSIVE ========== */
