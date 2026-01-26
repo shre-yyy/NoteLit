@@ -340,7 +340,7 @@ border-color: #92a7a8;
 
 /* NOTE TEXT */
 .note-text {
-  padding: 18px 20px;
+  padding: 18px 10px;
   min-height: 110px;
   border-radius: 18px;
   display: flex;
@@ -358,7 +358,7 @@ border-color: #92a7a8;
   text-overflow: ellipsis;
 
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
@@ -368,7 +368,8 @@ border-color: #92a7a8;
 }
 
 .note-time {
-  font-size: 1.05rem;
+ line-height: 40px;
+  font-size: 1.1rem;
   opacity: 0.85;
   color: rgba(255,255,255,0.7);
 }
