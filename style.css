@@ -751,9 +751,15 @@ border-color: #92a7a8;
   box-shadow:  0 0 0 3px rgba(146, 167, 168, 0.7);
 }
 
-note-hover:active {
+.note-hover:active {
   background: rgba(255,255,255,0.08);
   box-shadow: 0 0 12px rgba(0,255, 255, 0.6);
+}
+
+.press-glow {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 14px rgba(146, 167, 168, 0.7);
+  transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 /* ========== RESPONSIVE ========== */
