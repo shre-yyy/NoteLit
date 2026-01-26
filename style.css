@@ -131,6 +131,7 @@ button {
 }
 
 #searchInput {
+  font-size: 20px;
   border: 1px solid #2a2a2a;
   outline: none;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
