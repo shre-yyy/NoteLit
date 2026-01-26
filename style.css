@@ -27,6 +27,12 @@ button {
   touch-action: manipulation;
 }
 
+button:focus,
+.icon-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 /* ========== APP WRAPPER ========== */
 #app {
   width: 100%;
@@ -750,8 +756,13 @@ border-color: #92a7a8;
 }
 
 @media (hover: none) {
+  #notesList li {
+  cursor: default;
+}
   #notesList li:hover {
+   background-color: inherit;
    transform: none;
+   box-shadow: none;
 }
  .icon-btn:hover,
  .fab:hover,
