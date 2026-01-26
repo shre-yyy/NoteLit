@@ -600,6 +600,10 @@ document.querySelectorAll('.note-hover')
   });
 });
 
+document.addEventListener("touchend", () => {
+  document.activeElement?.blur();
+  });
+
   /* ===== INIT ===== */
   updateDateTime();
   setInterval(updateDateTime, 60000);
