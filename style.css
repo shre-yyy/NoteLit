@@ -742,10 +742,18 @@ border-color: #92a7a8;
 
 .note-hover {
   transition: box-shadow 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+
 }
 
 .note-hover.active-note {
   box-shadow:  0 0 0 3px rgba(146, 167, 168, 0.7);
+}
+
+note-hover:active {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 12px rgba(0,255, 255, 0.6);
 }
 
 /* ========== RESPONSIVE ========== */
@@ -755,7 +763,11 @@ border-color: #92a7a8;
   }
 }
 
-@media (hover: none) {
+@media (hover: none) and(pointer: coarse) {
+  .note-hover:hover {
+   background: inherit;
+   box-shadow: none;
+}
   #notesList li {
   cursor: default;
 }
