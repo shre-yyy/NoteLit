@@ -600,9 +600,24 @@ document.querySelectorAll('.note-hover')
   });
 });
 
+document.addEventListener("touchstart", (e) => {
+  const target = e.target.closest(".icon-btn, .fab, .tick-btn, #notesList li");
+  if (!target) return;
+
+  target.classList.add("press-glow");
+}, { passive: true });
+
 document.addEventListener("touchend", () => {
-  document.activeElement?.blur();
+  document.querySelectorAll(".press-glow").forEach(el => {
+    el.classList.remove("press-glow");
   });
+});
+
+document.addEventListener("touchcancel", () => {
+  document.querySelectorAll(".press-glow").forEach(el => {
+    el.classList.remove("press-glow");
+  });
+});
 
   /* ===== INIT ===== */
   updateDateTime();
