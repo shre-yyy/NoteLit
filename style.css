@@ -16,9 +16,9 @@ body {
  
   display: flex;
   margin: 0;
-  min-height: 100dvh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  height: 100dvh;
+  overflow: hidden;
+
 }
 
 button {
@@ -37,12 +37,13 @@ button:focus,
 #app {
   width: 100%;
   max-width: 480px;
-  min-height: 100dvh;
+  height: 100dvh;
   margin: 0 auto;
   background: #000000;
   display: flex;
   flex-direction: column;
   position: relative; 
+  overflow: hidden;
 }
 
 .top-bar {
@@ -120,6 +121,7 @@ button:focus,
 /* SEARCH + TICK ROW */
 .search-row {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 12px;
   padding: 8px 12px;
@@ -403,6 +405,10 @@ border-color: #92a7a8;
   align-items: stretch;
   padding: 16px;
   background-color: #000000;
+  
+  position: absolute;
+  inset: 0;
+  
 }
 
 /* EDITOR HEADER */
@@ -414,6 +420,7 @@ border-color: #92a7a8;
   border-bottom: 2px solid #2a2a2a;
   margin-bottom: 8px;
   font-size: 24px;
+  flex: 0 0 auto;
 
 }
 
@@ -688,6 +695,7 @@ border-color: #92a7a8;
   background: #000;
   z-index: 10;
  
+  flex: 0 0 auto;
   font-size: 26px;
 
   border-top: 2px solid #2a2a2a;
