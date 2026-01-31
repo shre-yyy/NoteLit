@@ -718,6 +718,22 @@ border-color: #92a7a8;
 
 }
 
+.delete-btn:active {
+  box-shadow: 
+          0 0 10px rgba(255, 90, 90, 0.7),
+          0 0 20px rgba(255, 90, 90, 0.5);
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn svg {
+  display: block;
+}
+
 .note-hover {
   transition: box-shadow 0.2s ease, background 0.2s ease;
   -webkit-tap-highlight-color: transparent;
