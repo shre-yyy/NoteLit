@@ -778,7 +778,11 @@ border-color: #92a7a8;
 }
 
 @media (hover: none) and(pointer: coarse) {
-  .note-hover:hover {
+ *:hover {
+  background: none;
+  box-shadow: none;
+}
+ .note-hover:hover {
    background: inherit;
    box-shadow: none;
 }
