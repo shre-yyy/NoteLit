@@ -117,7 +117,7 @@ button:focus,
   visibility: hidden;
 }
 
-.deleteSelectedBtn:active {
+#deleteSelectedBtn:active {
   box-shadow: 
           0 0 10px rgba(255, 90, 90, 0.7),
           0 0 20px rgba(255, 90, 90, 0.5);
@@ -823,3 +823,4 @@ border-color: #92a7a8;
     background: rgba(255,0,0,0.35);
   }
 }
+
