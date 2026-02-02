@@ -79,13 +79,6 @@ function renderNotes() {
     .sort((a, b) => b.pinned - a.pinned)
     .filter(n => (n.title + n.text).toLowerCase().includes(q));
 
-  // Empty state
-  if (filteredNotes.length === 0) {
-    emptyState.classList.remove("hidden");
-  } else {
-    emptyState.classList.add("hidden");
-  }
-
   filteredNotes.forEach(note => {
     const li = document.createElement("li");
     li.className = "note-item";
@@ -626,3 +619,4 @@ document.addEventListener("touchcancel", () => {
   showNotesPage();
   renderNotes();
 });
+
