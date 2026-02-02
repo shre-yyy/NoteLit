@@ -608,9 +608,9 @@ document.addEventListener("touchstart", (e) => {
 }, { passive: true });
 
 document.addEventListener("touchend", () => {
-  if (document.activeElement instanceof HTMLElement) {
-  document.activeElement.blur();
- }
+  document.querySelectorAll(".press-glow").forEach(el => {
+    el.classList.remove("press-glow");
+  });
 });
 
 document.addEventListener("touchcancel", () => {
