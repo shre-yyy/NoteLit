@@ -299,7 +299,7 @@ border-color: #92a7a8;
 #notesList li.active {
   background: #151515;
   box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.35);
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: box-shadow 1.3s ease, background-color 1.3s ease;
 }
 
 #notesList:has(.note:only-child) {
@@ -824,4 +824,5 @@ border-color: #92a7a8;
     background: rgba(255,0,0,0.35);
   }
 }
+
 
