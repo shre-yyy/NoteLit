@@ -221,8 +221,8 @@ border-color: #92a7a8;
 /* ========== FLOATING ADD BUTTON (FAB) ========== */
 .fab {
   position: fixed;
-  bottom: calc(110px + env(safe-area-inset-bottom));
-  right: 20px;
+  bottom: calc(100px + env(safe-area-inset-bottom));
+  right: 35px;
 
   width: 56px;
   height: 56px;
@@ -824,3 +824,4 @@ border-color: #92a7a8;
     background: rgba(255,0,0,0.35);
   }
 }
+
