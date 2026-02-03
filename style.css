@@ -91,7 +91,7 @@ button:not(:active),
 }
 
 #installGate button {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 14px 24px;
   font-size: 18px;
   border-radius: 12px;
@@ -863,3 +863,4 @@ transition:
     background: rgba(255,0,0,0.35);
   }
 }
+
