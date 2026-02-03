@@ -77,24 +77,45 @@ button:not(:active),
   color: #92A7A4;
 }
 
-.install-gate {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  color: white;
+#installScreen {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  z-index: 9999;
+  padding: 48px 20px 40px;
+  background: #000;
 }
 
-.install-gate button {
-  margin-top: 20px;
-  padding: 14px 24px;
-  font-size: 18px;
-  border-radius: 12px;
-  border: none;
+.install-top {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.install-middle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.install-middle h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.install-middle p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.install-bottom {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
 }
 
 /* ========== NOTES PAGE ========== */
