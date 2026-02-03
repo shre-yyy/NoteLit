@@ -387,7 +387,7 @@ function updateDateTime()
  
   /* ===== FONT SIZE ===== */
   const increaseFont = () => {
-    if (fontSize < 28) {
+    if (fontSize < 42) {
       fontSize += 2;
       editor.style.fontSize = fontSize + "px";
       autoSave();
@@ -631,3 +631,4 @@ if ("serviceWorker" in navigator) {
   showNotesPage();
   renderNotes();
 });
+
