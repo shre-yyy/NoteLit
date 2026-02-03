@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
   const dateTimeEl = document.getElementById("dateTime");
   const emptyState= document.getElementById("emptyState");
-  const installScreen = document.getElementById("installScreen");
-  const app = document.getElementById("app");
+ const installGate = document.getElementById("installGate");
+ const app = document.getElementById("app");
 
   /* ===== STATE ===== */
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -38,30 +38,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectionMode = false;
   let selectedNotes = new Set();
 
- let deferredPrompt = null;
+ let deferredPrompt;
 
-window.addEventListener("beforeinstallprompt", e => {
+window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
 });
 
-document.getElementById("installBtn").addEventListener("click", async () => {
+document.getElementById("installBtn")?.addEventListener("click", async () => {
   if (!deferredPrompt) return;
 
   deferredPrompt.prompt();
-  const choice = await deferredPrompt.userChoice;
+  const result = await deferredPrompt.userChoice;
 
-  if (choice.outcome === "accepted") {
-    installScreen.hidden = true;
+  if (result.outcome === "accepted") {
+    installGate.style.display = "none";
     app.hidden = false;
   }
 
   deferredPrompt = null;
-});
-
-window.addEventListener("appinstalled", () => {
-  installScreen.hidden = true;
-  app.hidden = false;
 });
 
   /* ===== STORAGE ===== */
@@ -92,17 +87,19 @@ window.addEventListener("appinstalled", () => {
   titleInput.style.backgroundColor = color;
 }
 
- function isInstalled() {
-  return window.matchMedia("(display-mode: standalone)").matches
-    || window.navigator.standalone === true;
+function isInstalled() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  );
 }
 
 if (isInstalled()) {
+  installGate.style.display = "none";
   app.hidden = false;
-  installScreen.hidden = true;
 } else {
+  installGate.style.display = "flex";
   app.hidden = true;
-  installScreen.hidden = false;
 }
 
   /* ===== RENDER NOTES ===== */
