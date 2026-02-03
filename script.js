@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
   const dateTimeEl = document.getElementById("dateTime");
   const emptyState= document.getElementById("emptyState");
+  const installScreen = document.getElementById("installScreen");
+  const app = document.getElementById("app");
 
   /* ===== STATE ===== */
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -36,25 +38,31 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectionMode = false;
   let selectedNotes = new Set();
 
-  let deferredPrompt;
-const gate = document.getElementById("installGate");
-const installBtn = document.getElementById("installBtn");
+ let deferredPrompt = null;
 
 window.addEventListener("beforeinstallprompt", e => {
   e.preventDefault();
   deferredPrompt = e;
-
-  if (!window.matchMedia("(display-mode: standalone)").matches) {
-    gate.classList.remove("hidden");
-  }
 });
 
-installBtn.onclick = async () => {
+document.getElementById("installBtn").addEventListener("click", async () => {
   if (!deferredPrompt) return;
+
   deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
+  const choice = await deferredPrompt.userChoice;
+
+  if (choice.outcome === "accepted") {
+    installScreen.hidden = true;
+    app.hidden = false;
+  }
+
   deferredPrompt = null;
-};
+});
+
+window.addEventListener("appinstalled", () => {
+  installScreen.hidden = true;
+  app.hidden = false;
+});
 
   /* ===== STORAGE ===== */
   const saveToStorage = () =>
@@ -82,6 +90,19 @@ installBtn.onclick = async () => {
 
   editor.style.backgroundColor = color;
   titleInput.style.backgroundColor = color;
+}
+
+ function isInstalled() {
+  return window.matchMedia("(display-mode: standalone)").matches
+    || window.navigator.standalone === true;
+}
+
+if (isInstalled()) {
+  app.hidden = false;
+  installScreen.hidden = true;
+} else {
+  app.hidden = true;
+  installScreen.hidden = false;
 }
 
   /* ===== RENDER NOTES ===== */
@@ -658,4 +679,3 @@ if ("serviceWorker" in navigator) {
   showNotesPage();
   renderNotes();
 });
-
