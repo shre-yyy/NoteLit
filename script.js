@@ -25,8 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
   const dateTimeEl = document.getElementById("dateTime");
   const emptyState= document.getElementById("emptyState");
- const installGate = document.getElementById("installGate");
- const app = document.getElementById("app");
+  const installGate = document.getElementById("installGate");
+  const app = document.getElementById("app");
+  const installBtn = document.getElementById("installBtn");
+
 
   /* ===== STATE ===== */
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -37,29 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let listType = null;
   let selectionMode = false;
   let selectedNotes = new Set();
-
- let deferredPrompt;
+  let deferredPrompt = null;
 
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
 });
 
-document.getElementById("installBtn")?.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
-
-  deferredPrompt.prompt();
-  const result = await deferredPrompt.userChoice;
-
-  if (result.outcome === "accepted") {
-    installGate.style.display = "none";
-    app.hidden = false;
-  }
-
-  deferredPrompt = null;
-});
-
-  /* ===== STORAGE ===== */
+   /* ===== STORAGE ===== */
   const saveToStorage = () =>
     localStorage.setItem("notes", JSON.stringify(notes));
 
@@ -87,6 +74,7 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
   titleInput.style.backgroundColor = color;
 }
 
+
 function isInstalled() {
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
@@ -94,12 +82,21 @@ function isInstalled() {
   );
 }
 
-if (isInstalled()) {
-  installGate.hidden = true;
-  app.hidden = false;
-} else {
+function showInstallGateUI() {
   installGate.hidden = false;
-  app.hidden = true;
+  app.style.display = "none";
+}
+
+function showAppUI() {
+  installGate.hidden = true;
+  app.style.display = "block";
+}
+
+if (isInstalled()) {
+  showAppUI();
+} else {
+  showInstallGateUI();
+  return; 
 }
 
   /* ===== RENDER NOTES ===== */
@@ -669,6 +666,20 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+  const result = await deferredPrompt.userChoice;
+
+  if (result.outcome === "accepted") {
+    showAppUI();
+  }
+
+  deferredPrompt = null;
+});
+
   /* ===== INIT ===== */
   updateDateTime();
   setInterval(updateDateTime, 60000);
@@ -676,4 +687,3 @@ if ("serviceWorker" in navigator) {
   showNotesPage();
   renderNotes();
 });
-
