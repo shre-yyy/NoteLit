@@ -864,4 +864,9 @@ transition:
   }
 }
 
+@media (display-mode: standalone) {
+  #installGate {
+    display: none !important;
+  }
+}
 
