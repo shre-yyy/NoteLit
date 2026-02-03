@@ -95,10 +95,10 @@ function isInstalled() {
 }
 
 if (isInstalled()) {
-  installGate.style.display = "none";
+  installGate.hidden = true;
   app.hidden = false;
 } else {
-  installGate.style.display = "flex";
+  installGate.hidden = false;
   app.hidden = true;
 }
 
@@ -676,3 +676,4 @@ if ("serviceWorker" in navigator) {
   showNotesPage();
   renderNotes();
 });
+
