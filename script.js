@@ -41,11 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedNotes = new Set();
   let deferredPrompt = null;
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
    /* ===== STORAGE ===== */
   const saveToStorage = () =>
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -74,7 +69,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
   titleInput.style.backgroundColor = color;
 }
 
-
 function isInstalled() {
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
@@ -84,19 +78,12 @@ function isInstalled() {
 
 function showInstallGateUI() {
   installGate.hidden = false;
-  app.style.display = "none";
+  app.hidden = true;
 }
 
 function showAppUI() {
   installGate.hidden = true;
-  app.style.display = "block";
-}
-
-if (isInstalled()) {
-  showAppUI();
-} else {
-  showInstallGateUI();
-  return; 
+  app.hidden = false;
 }
 
   /* ===== RENDER NOTES ===== */
@@ -667,18 +654,42 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+
+/* 🔔 Detect install availability */
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  if (!isInstalled()) {
+    showInstallGateUI();
+  }
+});
+
+/* 📲 Install button */
 installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
+  if (!deferredPrompt) {
+    alert("Install not available yet");
+    return;
+  }
 
-  deferredPrompt.prompt();
-  const result = await deferredPrompt.userChoice;
+deferredPrompt.prompt();
+  const choice = await deferredPrompt.userChoice;
 
-  if (result.outcome === "accepted") {
+  if (choice.outcome === "accepted") {
     showAppUI();
   }
 
   deferredPrompt = null;
 });
+
+/* 🚀 Initial load */
+if (isInstalled()) {
+  showAppUI();
+} else {
+  // Default: hide gate until install is available
+  installGate.hidden = true;
+  app.hidden = false;
+}
 
   /* ===== INIT ===== */
   updateDateTime();
