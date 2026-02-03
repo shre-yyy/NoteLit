@@ -36,6 +36,26 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectionMode = false;
   let selectedNotes = new Set();
 
+  let deferredPrompt;
+const gate = document.getElementById("installGate");
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", e => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  if (!window.matchMedia("(display-mode: standalone)").matches) {
+    gate.classList.remove("hidden");
+  }
+});
+
+installBtn.onclick = async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+};
+
   /* ===== STORAGE ===== */
   const saveToStorage = () =>
     localStorage.setItem("notes", JSON.stringify(notes));
