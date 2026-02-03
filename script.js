@@ -258,7 +258,8 @@ function updateDateTime()
 }
     dateTimeEl.textContent = note.updatedAt;
 
-   
+   history.pushState({ page: "editor" }, "", "#editor");
+  }
     saveToStorage();
     undoStack = [editor.value];
     redoStack = [];
@@ -387,7 +388,7 @@ function updateDateTime()
  
   /* ===== FONT SIZE ===== */
   const increaseFont = () => {
-    if (fontSize < 42) {
+    if (fontSize < 52) {
       fontSize += 2;
       editor.style.fontSize = fontSize + "px";
       autoSave();
@@ -612,6 +613,12 @@ document.addEventListener("touchcancel", () => {
   });
 });
 
+ window.addEventListener("popstate", e => {
+  if (editorPage.style.display === "flex") {
+   showNotesPage();
+ }
+});
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
@@ -631,4 +638,3 @@ if ("serviceWorker" in navigator) {
   showNotesPage();
   renderNotes();
 });
-
