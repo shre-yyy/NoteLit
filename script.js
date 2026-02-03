@@ -70,10 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 function isInstalled() {
-  return (
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.navigator.standalone === true
-  );
+  return 
+    window.matchMedia("(display-mode: standalone)").matches;
 }
 
 function showInstallGateUI() {
@@ -84,6 +82,12 @@ function showInstallGateUI() {
 function showAppUI() {
   installGate.hidden = true;
   app.hidden = false;
+}
+
+if (isInstalled()) {
+  showAppUI();
+} else {
+  showInstallGateUI();
 }
 
   /* ===== RENDER NOTES ===== */
@@ -667,10 +671,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 /* 📲 Install button */
 installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) {
-    alert("Install not available yet");
-    return;
-  }
+  if (!deferredPrompt) return; 
 
 deferredPrompt.prompt();
   const choice = await deferredPrompt.userChoice;
@@ -682,14 +683,9 @@ deferredPrompt.prompt();
   deferredPrompt = null;
 });
 
-/* 🚀 Initial load */
-if (isInstalled()) {
+window.addEventListener("appinstalled" , () => {
   showAppUI();
-} else {
-  // Default: hide gate until install is available
-  installGate.hidden = true;
-  app.hidden = false;
-}
+});
 
   /* ===== INIT ===== */
   updateDateTime();
