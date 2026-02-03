@@ -279,7 +279,7 @@ function updateDateTime()
     dateTimeEl.textContent = note.updatedAt;
 
    history.pushState({ page: "editor" }, "", "#editor");
-  }
+  
     saveToStorage();
     undoStack = [editor.value];
     redoStack = [];
@@ -658,3 +658,4 @@ if ("serviceWorker" in navigator) {
   showNotesPage();
   renderNotes();
 });
+
