@@ -90,6 +90,16 @@ if (isInstalled()) {
   showInstallGateUI();
 }
 
+  function setVH() {
+  document.documentElement.style.setProperty(
+    "--vh",
+    window.innerHeight * 0.01 + "px"
+  );
+}
+setVH();
+window.addEventListener("resize", setVH);
+
+
   /* ===== RENDER NOTES ===== */
 function renderNotes() {
   notesList.innerHTML = "";
@@ -694,3 +704,4 @@ window.addEventListener("appinstalled" , () => {
   showNotesPage();
   renderNotes();
 });
+
