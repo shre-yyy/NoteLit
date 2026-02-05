@@ -321,7 +321,7 @@ transition:
 
 /* NOTE CARD */
 #notesList li {
-  width: 100%;
+  width: 95%;
   max-width: 600px;
   margin: 0 auto 8px;
   min-height: 157px;
@@ -805,9 +805,9 @@ transition:
     font-size: 18px;
   }
  .color-bar button {
-  font-size: 36px;
-  width: 52px;
-  height: 52px;
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
  }
 }
 
