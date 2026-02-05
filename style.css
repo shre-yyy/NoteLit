@@ -712,6 +712,10 @@ transition:
 
 /* ========== FOOTER ========== */
 .editor-footer {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -747,12 +751,16 @@ transition:
 .editor-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 18px;
   padding: 8px 12px;
   width: 100%;
   padding-left: 4px;
   overflow: visible;
+}
+
+ .editor-toolbar .toolbar-group:last-child {
+  margin-left: auto;
 }
 
  .editor-toolbar::-webkit-scrollbar {
