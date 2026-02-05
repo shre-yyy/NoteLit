@@ -129,6 +129,7 @@ button:not(:active),
   width: 44px;
   height: 44px;
   display: flex; 
+  flex-shrink: 0;
  }
 
 .action-slot button {
@@ -204,6 +205,7 @@ border-color: #92a7a8;
   align-items: center;
   justify-content: center;
   padding: 0;
+  flex-shrink: 0;
 
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -493,6 +495,7 @@ transition:
 
   cursor: pointer;
   color: #fff;
+  flex-shrink: 0;
 
 -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -746,9 +749,14 @@ transition:
   padding: 8px 12px;
   width: 100%;
   padding-left: 4px;
-  padding-right: 26px;
-
+  padding-right: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+
+ .editor-toolbar::-webkit-scrollbar {
+  display: none;
+} 
 
 .toolbar-group {
  display: flex;
