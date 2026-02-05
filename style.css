@@ -759,7 +759,7 @@ transition:
 }
 
 .delete-btn {
- margin-left: 0;
+ margin-left: 8px;
  color: #ff6b6b;
 
  -webkit-tap-highlight-color: transparent;
@@ -878,4 +878,5 @@ transition:
     display: none !important;
   }
 }
+
 
