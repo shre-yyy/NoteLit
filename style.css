@@ -75,15 +75,6 @@ button:not(:active),
   color: #92A7A4;
 }
 
-.app-shell {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 #installGate {
   position: fixed;
   inset: 0;
@@ -314,7 +305,7 @@ transition:
 #notesList {
   flex: 1 1 auto;
   min-height: 0;
-  padding: 15px 0 120px;
+  padding: 15px 0 55px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -360,8 +351,7 @@ transition:
   max-width: none;
   flex: 1;
   margin-top: 12px;
-  height: auto;
-  max-height: 60vh;
+  height: 60vh;
   border-radius: 18px;
   padding: auto;
   background: #111;
@@ -436,7 +426,7 @@ transition:
 #editorPage {
   flex: 1;
   width: 100%;
-  min-height: 0;
+  min-height: 100%;
   height: auto;
   overflow: hidden;
   display: flex;
