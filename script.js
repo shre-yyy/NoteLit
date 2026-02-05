@@ -90,7 +90,7 @@ if (isInstalled()) {
   showInstallGateUI();
 }
 
-  function setVH() {
+function setVH() {
   document.documentElement.style.setProperty(
     "--vh",
     window.innerHeight * 0.01 + "px"
@@ -697,6 +697,38 @@ window.addEventListener("appinstalled" , () => {
   showAppUI();
 });
 
+function forceLayoutFix() {
+  const app = document.getElementById("app");
+  const notesPage = document.getElementById("notesPage");
+  const notesList = document.getElementById("notesList");
+
+  if (!app || !notesPage || !notesList) return;
+
+  // Force real viewport height (bypasses svh bug)
+  const vh = window.innerHeight;
+
+  app.style.height = vh + "px";
+  notesPage.style.height = vh + "px";
+
+  // Calculate remaining space for notes list
+  const topBar = document.querySelector(".top-bar");
+  const searchRow = document.querySelector(".search-row");
+
+  let used = 0;
+  if (topBar) used += topBar.offsetHeight;
+  if (searchRow) used += searchRow.offsetHeight;
+
+  notesList.style.height = (vh - used - 40) + "px";
+  notesList.style.overflowY = "auto";
+}
+
+// Run once
+forceLayoutFix();
+
+// Run again on resize / orientation change
+window.addEventListener("resize", forceLayoutFix);
+window.addEventListener("orientationchange", forceLayoutFix);
+
   /* ===== INIT ===== */
   updateDateTime();
   setInterval(updateDateTime, 60000);
@@ -704,4 +736,3 @@ window.addEventListener("appinstalled" , () => {
   showNotesPage();
   renderNotes();
 });
-
