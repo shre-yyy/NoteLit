@@ -22,7 +22,7 @@ body {
  
   display: flex;
   margin: 0;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100svh;
   overflow: hidden;
 
 }
@@ -51,14 +51,12 @@ button:not(:active),
 /* ========== APP WRAPPER ========== */
 #app {
   width: 100%;
-  max-width: 100%;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100svh;
   margin: 0;
   background: #000000;
   display: flex;
   flex-direction: column;
   position: relative; 
-  overflow: hidden;
 }
 
 .top-bar {
@@ -305,8 +303,9 @@ transition:
 
 /* ========== NOTES LIST ========== */
 #notesList {
-  flex: 1;
-  padding: 15px 0 55px;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 15px 0 120px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -352,7 +351,8 @@ transition:
   max-width: none;
   flex: 1;
   margin-top: 12px;
-  height: 60vh;
+  height: auto;
+  max-height: 60vh;
   border-radius: 18px;
   padding: auto;
   background: #111;
@@ -427,7 +427,7 @@ transition:
 #editorPage {
   flex: 1;
   width: 100%;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 0;
   height: auto;
   overflow: hidden;
   display: flex;
@@ -436,10 +436,7 @@ transition:
   align-items: stretch;
   padding: 16px;
   background-color: #000000;
-  
-  position: absolute;
-  inset: 0;
-  
+    
 }
 
 /* EDITOR HEADER */
@@ -667,7 +664,7 @@ transition:
   font-weight: 450;
   line-height: 1.6;
   min-height: 0;
-  height: 100%;
+  height: auto;
   max-height: 100%;
   overflow-y: auto;
   background: #111111;
