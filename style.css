@@ -717,30 +717,36 @@ transition:
   z-index: 20;
 
   width: 100%;
-  background: #000;
+  box-sizing: border-box;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  margin-top: 8px;
+  padding:
+    12px
+    clamp(12px, 4vw, 20px)
+    calc(12px + env(safe-area-inset-bottom));
+
+  background: #000;
   border-top: 2px solid #2a2a2a;
 
-  overflow: visible;
+  overflow-x: hidden; 
+  overflow-y: visible;
 }
 
 .editor-toolbar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   width: 100%;
-  max-width: 480px; 
-
-  gap: 16px;
+  max-width: min(92vw, 420px); 
+  gap: 14px;
   padding: 6px 0;
 
-  overflow: visible;
+  box-sizing: border-box;
 }
 
  .editor-toolbar::-webkit-scrollbar {
@@ -748,8 +754,8 @@ transition:
 }
 
 .editor-toolbar .icon-btn {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 40px;
+  min-height: 40px;
 
   display: flex;
   align-items: center;
@@ -760,8 +766,9 @@ transition:
 
 .toolbar-group {
  display: flex;
- gap: 14px;
+ gap: 12px;
  flex-shrink: 0;
+  min-width: 0;
 }
 
 .delete-btn {
@@ -884,6 +891,7 @@ transition:
     display: none !important;
   }
 }
+
 
 
 
