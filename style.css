@@ -737,12 +737,12 @@ transition:
 .editor-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   width: 100%;
   max-width: 360px; 
   gap: 12px;
-  padding: 4px 12px;
+  padding: 4px 8px;
 
   box-sizing: border-box;
 }
@@ -887,6 +887,7 @@ transition:
     display: none !important;
   }
 }
+
 
 
 
