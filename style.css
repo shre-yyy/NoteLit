@@ -725,7 +725,7 @@ transition:
   margin-top: 8px;
   padding:
     12px
-    14px
+    clamp(16px, 5vw, 24px)
     calc(12px + env(safe-area-inset-bottom));
 
   background: #000;
@@ -742,7 +742,7 @@ transition:
   width: 100%;
   max-width: 360px; 
   gap: 12px;
-  padding: 4px 0;
+  padding: 4px 2px;
 
   box-sizing: border-box;
 }
@@ -886,6 +886,7 @@ transition:
     display: none !important;
   }
 }
+
 
 
 
