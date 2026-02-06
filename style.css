@@ -742,7 +742,7 @@ transition:
   width: 100%;
   max-width: 360px; 
   gap: 12px;
-  padding: 6px 16px;
+  padding: 4px 12px;
 
   box-sizing: border-box;
 }
@@ -887,6 +887,7 @@ transition:
     display: none !important;
   }
 }
+
 
 
 
